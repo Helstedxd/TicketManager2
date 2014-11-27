@@ -1,0 +1,40 @@
+﻿<Window x:Class="TicketManager2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="623" Width="1100" MinHeight="623" MinWidth="1100">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            
+            <Image Source="Resources/logo.png" HorizontalAlignment="Left" />
+
+            <Button Grid.Column="1" Template="{DynamicResource settingButtonTemplate}" />
+			<Button Grid.Column="2" Template="{DynamicResource addTicketButtonTemplate}" />
+        </Grid>
+        
+        <Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="300"/>
+			</Grid.ColumnDefinitions>
+
+			<ListBox Grid.Column="0"/>
+
+			<TabControl Grid.Column="1">
+				<TabItem Header="Controls"></TabItem>
+				<TabItem Header="Stats"></TabItem>
+				<TabItem Header="Log in"></TabItem>
+				
+			</TabControl>
+        </Grid>
+    </Grid>
+</Window>
