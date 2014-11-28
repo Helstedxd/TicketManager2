@@ -1,6 +1,7 @@
 ﻿<Window x:Class="TicketManager2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Behaviours="clr-namespace:Wpf.Behaviours"
         Title="MainWindow" Height="623" Width="1100" MinHeight="623" MinWidth="1100">
     <Grid>
         <Grid.RowDefinitions>
@@ -27,13 +28,35 @@
 				<ColumnDefinition Width="300"/>
 			</Grid.ColumnDefinitions>
 
-			<ListBox Grid.Column="0"/>
-
-			<TabControl Grid.Column="1">
-				<TabItem Header="Controls"></TabItem>
-				<TabItem Header="Stats"></TabItem>
-				<TabItem Header="Log in"></TabItem>
-				
+            <ListView Grid.Column="0" Name="Tickets" Behaviours:GridViewColumnResize.Enabled="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Ticket ID" DisplayMemberBinding="{Binding TicketID}" Behaviours:GridViewColumnResize.Width="1*"  />
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Behaviours:GridViewColumnResize.Width="2*"/>
+                        <GridViewColumn Header="Mail" DisplayMemberBinding="{Binding Mail}" Behaviours:GridViewColumnResize.Width="3*"/>
+                        <GridViewColumn Header="Purchased" DisplayMemberBinding="{Binding Purchased}" Behaviours:GridViewColumnResize.Width="4*"/>
+                        <GridViewColumn Header="Used" DisplayMemberBinding="{Binding Used}" Behaviours:GridViewColumnResize.Width="5*"/>
+                        <GridViewColumn Header="Valid" DisplayMemberBinding="{Binding Valid}" Behaviours:GridViewColumnResize.Width="6*"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+			
+			<TabControl Grid.Column="1"  Margin="0" Padding="0" BorderThickness="0	">
+				<TabItem Header="Controls" Template="{DynamicResource TabControl}" Background="#c7d7e4">
+					<Grid Background="#c7d7e4">
+						<Label Content="test1" />
+					</Grid>
+				</TabItem>
+				<TabItem Header="Stats" Template="{DynamicResource TabControl}" Background="#b3c1cd">
+					<Grid Background="#b3c1cd">
+						<Label Content="test2" />
+					</Grid>
+				</TabItem>
+				<TabItem Header="Log in" Template="{DynamicResource TabControl}" Background="#a1adb8">
+					<Grid Background="#a1adb8">
+						<Label Content="test3" />
+					</Grid>
+				</TabItem>
 			</TabControl>
         </Grid>
     </Grid>

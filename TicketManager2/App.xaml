@@ -46,5 +46,14 @@
                 </EventTrigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <ControlTemplate x:Key="TabControl" TargetType="{x:Type TabItem}">
+        	<Grid Background="{TemplateBinding Background}" Width="Auto" Margin="-2,-2,0,0" SnapsToDevicePixels="True">
+        		<Label Content="{TemplateBinding Header}" Padding="20,5,20,5">
+        			<Label.Foreground>
+        				<SolidColorBrush Color="#FFFFFF"/>
+					</Label.Foreground>
+        		</Label>
+			</Grid>
+        </ControlTemplate>
     </Application.Resources>
 </Application>

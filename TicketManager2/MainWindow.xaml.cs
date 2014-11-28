@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TicketManager2.Models;
 
 namespace TicketManager2
 {
@@ -23,6 +24,12 @@ namespace TicketManager2
         public MainWindow()
         {
             InitializeComponent();
+
+            for (int i = 0; i < 100000; i++)
+            {
+                Ticket t = new Ticket() { TicketID = "ticketid", Name = "Name", Mail = "mail", Purchased = DateTime.Now, Used = true, Valid = true };
+                Tickets.Items.Add(t);
+            }
         }
     }
 }
